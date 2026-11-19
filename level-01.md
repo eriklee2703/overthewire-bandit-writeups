@@ -14,4 +14,4 @@ Locate and open the file called `readme` in the home directory. The password sto
 
 ## Lessons Learned
 I learned that each SSH connection authenticates a single user session. In order to switch from `bandit0` -> `bandit1` while maintaining a single session, I needed to establish a
-new SSH connection using the new credentials. Exiting out of the existing session was one way of accomplishing this.
+new SSH connection with the new credentials. Exiting out of the existing session was one way to accomplish this.
