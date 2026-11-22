@@ -4,9 +4,9 @@ Locate a hidden file within the `inhere` directory. The password stored in the f
 ## Key Concepts & Commands:
 - `cd`: Change directories.
 - `man`: A manual page for a command.
-- `whatis`: Provides a one line description of a command.
-- `ls -a`: Lists all files and directories, visible and hidden in the current directory.
-- `ls -la`: Lists all files and directories, including hidden in the current directory (long 
+- `whatis`: Provides a one-line description of a command.
+- `ls -a`: Lists all files and directories, visible and hidden, in the current directory.
+- `ls -la`: Lists all files and directories, including hidden in the current directory (long listing format).
 
 ## Investigation & Troubleshooting 
 - Used `ls` to locate the `inhere` directory.
@@ -29,4 +29,4 @@ drwxr-xr-x 3 root    root    4096 Oct 25 13:37 ..
 - After retrieving the password, exited out of the current session and reconnected using the `bandit4` username and the new password to move on to the next level.
 
 ## Lessons Learned
-I learned that filenames can be hidden when `.` is placed in front of a filename. Also the discovery of the `man` page along with `whatis` should help me better understand how to use each command.
+I learned that file can be hidden when `.` is placed in front of a filename. Also the discovery of the `man` page along with `whatis` should help me better understand how to use each command.
