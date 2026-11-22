@@ -1,11 +1,10 @@
-# Level 1 -> Level 2
+# Level 2 -> Level 3
 ## Objective:
-Locate and open the file called `-` in the home directory. The password stored in the file will be used to log into `bandit2`.
+Open a file in the home directory named `-- spaces in this filename--`. The password stored in the file will be used to log into `bandit3`.
 ## Key Concepts & Commands:
 - `ls`: Lists all visable files and directories in the current directory.
 - `cat`: Prints all contents of a file to the terminal.
 - `./`: Specifies that a file is in the current directory.
-- `exit`: Terminates the current shell session.
 
 ## Investigation & Troubleshooting 
 - Used `ls` to list the available files in the home directory.
