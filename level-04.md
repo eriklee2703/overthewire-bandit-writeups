@@ -1,17 +1,16 @@
-# Level 1 -> Level 2
+# Level 3 -> Level 4
 ## Objective:
-Locate and open the file called `-` in the home directory. The password stored in the file will be used to log into `bandit2`.
+Locate a hidden file within the `inhere` directory. The password stored in the file will be used to log into `bandit4`.
 ## Key Concepts & Commands:
-- `ls`: Lists all visable files and directories in the current directory.
-- `cat`: Prints all contents of a file to the terminal.
-- `./`: Specifies that a file is in the current directory.
-- `exit`: Terminates the current shell session.
+- `cd`: Change directories.
+- `ls -a`: Lists all files and directories, visible and hidden in the current directory.
+- `ls -la`: Lists all files and directories, including hidden in the current directory (long 
 
 ## Investigation & Troubleshooting 
-- Used `ls` to list the available files in the home directory.
-- Initially, tried to use `cat -` similarly to the last level but `-` file resulted without an output.
-- Realized that the `-` file was interpreted by `cat` as a standard input instead of a filename.
-- `./` resolves this issue by preventing `-` from being interpreted as a command option.
+- Used `ls` to locate the `inhere` directory.
+- To navigate into the `inhere` directory, used `cd inhere`.
+- When trying to list the files in the `inhere` directory, nothing appeared since the file is hidden.
+- A c
 - Used `cat ./-` to display contents in the `-` file and retrieve the password for bandit2.
 - After retrieving the password, exited out of the current session and reconnected using the `bandit2` username and the new password to move on to the next level.
 
