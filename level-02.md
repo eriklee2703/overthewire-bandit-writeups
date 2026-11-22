@@ -5,8 +5,7 @@ Locate and open the file called `-` in the home directory. The password stored i
 - `ls`: Lists all visable files and directories in the current directory.
 - `cat`: Prints all contents of a file to the terminal.
 - `./`: Specifies that a file is in the current directory.
-- `exit`: Terminates the current shell session.
-
+  
 ## Investigation & Troubleshooting 
 - Used `ls` to list the available files in the home directory.
 - Initially, tried to use `cat -` similarly to the last level but `-` file resulted without an output.
