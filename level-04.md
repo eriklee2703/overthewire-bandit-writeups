@@ -29,4 +29,4 @@ drwxr-xr-x 3 root    root    4096 Oct 25 13:37 ..
 - After retrieving the password, exited out of the current session and reconnected using the `bandit4` username and the new password to move on to the next level.
 
 ## Lessons Learned
-I learned that filenames can be hidden when `.` is placed in front of a filename. Also the discovery of the `man` page along with `whatis` should help better understand how to use each command.
+I learned that filenames can be hidden when `.` is placed in front of a filename. Also the discovery of the `man` page along with `whatis` should help me better understand how to use each command.
