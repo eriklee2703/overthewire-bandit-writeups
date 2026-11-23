@@ -1,19 +1,32 @@
-# Level 1 -> Level 2
+# Level 6 -> Level 7
 ## Objective:
-Locate and open the file called `-` in the home directory. The password stored in the file will be used to log into `bandit2`.
+Locate the password stored somewhere on the server containing all of the following properties: owned by user `bandit7`, owned by group `bandit6`, and 33 bytes in size.
+
 ## Key Concepts & Commands:
-- `ls`: Lists all visable files and directories in the current directory.
-- `cat`: Prints all contents of a file to the terminal.
-- `./`: Specifies that a file is in the current directory.
-- `exit`: Terminates the current shell session.
+- `find -size`: Searches for files with the specified size.
+- `find -user`: Matches files based on their user ownership.
+- `find -group`: Matches files based on their group ownership.
+- `2>/dev/null`: Redirects standard error messages.
 
 ## Investigation & Troubleshooting 
-- Used `ls` to list the available files in the home directory.
-- Initially, tried to use `cat -` similarly to the last level but `-` file resulted without an output.
-- Realized that the `-` file was interpreted by `cat` as a standard input instead of a filename.
-- `./` resolves this issue by preventing `-` from being interpreted as a command option.
-- Used `cat ./-` to display contents in the `-` file and retrieve the password for bandit2.
-- After retrieving the password, exited out of the current session and reconnected using the `bandit2` username and the new password to move on to the next level.
+- This problem continues building on the `find` command and exploring different options.
+- After consulting the `man` page and researching online, discovered the `-user` and `-group` options, which can be used to specify the user and group owners.
+- Similarly to the previous level, used `-size 33c` to search for files exactly 33 bytes in size.
+- Trivial, but also realized that the home directory is a subdirectory of root directory. So shifted the search line to the root directory with `cd /`.
+- Initially, the first search was still cluttered with numerous "Permission Denied" messages.
+- To filter this out, used `2>/dev/null` which redirects all the error messages in the terminal to `/dev/null`.
+
+```bash
+bandit6@bandit:/$ find -size 33c -user bandit7 -group bandit6 2>/dev/null
+/var/lib/dpkg/info/bandit7.password
+```
+- Located the password file for `bandit7` which was stored deep within the directory tree.
+
+```bash
+bandit6@bandit:/$ cat /var/lib/dpkg/info/bandit7.password
+```
+- Retrieved the password by pasting the entire absolute path into `cat` without having to change directories.
+- After retrieving the password, exited out of the current session and reconnected using the `bandit7` username and the new password to move on to the next level.
 
 ## Lessons Learned
-I learned that filenames that contain special characters like `-` cannot simply be referenced directly, since special characters can sometimes be interpreted as command options.
+I continued to explore different `find` options and also learned how to handle standard error messages by redirecting them with `2>/dev/null`, making command-line searches much cleaner.
