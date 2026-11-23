@@ -7,7 +7,7 @@ The password is stored in a `data.txt` file which is encoded in `base64`.
 - `base64 -d`: Decodes data in base64.
 
 ## Investigation & Troubleshooting 
-- Contents in the `data.txt file contains a single line of encoded text.
+- The `data.txt file contains a single line of encoded text.
 - `base64 -d` decodes base64 encoded text.
 
 ```bash
