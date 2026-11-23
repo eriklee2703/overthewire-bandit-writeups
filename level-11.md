@@ -17,7 +17,7 @@ bandit10@bandit:~$ base64 -d data.txt
 The password is *************
 bandit10@bandit:~$ cat data.txt
 ```
-- After retrieving the password, exited out of the current session and reconnected using the `bandit8` username and the new password to move on to the next level.
+- After retrieving the password, exited out of the current session and reconnected using the `bandit11` username and the new password to move on to the next level.
 
 ## Lessons Learned
 I learned to encode and decode base64 text.
