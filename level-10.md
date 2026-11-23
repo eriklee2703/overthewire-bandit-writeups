@@ -1,9 +1,9 @@
-# Level 1 -> Level 2
+# Level 9 -> Level 10
 ## Objective:
-Locate and open the file called `-` in the home directory. The password stored in the file will be used to log into `bandit2`.
+The password is stored within a file named `data.txt` that contains one of the few human-readable strings, preceded by several ‘=’ characters. Create a search command to identify the password and use it move to the next level.
 ## Key Concepts & Commands:
-- `ls`: Lists all visable files and directories in the current directory.
-- `cat`: Prints all contents of a file to the terminal.
+- `strings`: Lists all visable files and directories in the current directory.
+- `cat`: Prints the sequences of prinatable characters in a file. By default, the minimum is four characters.
 - `./`: Specifies that a file is in the current directory.
 - `exit`: Terminates the current shell session.
 
