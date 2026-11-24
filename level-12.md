@@ -1,18 +1,24 @@
-# Level 7 -> Level 8
+# Level 11 -> Level 12
 ## Objective:
-The password is stored next to the word "millionth" in a file named `data.txt`, located within the home directory. This password will be used to move on to `bandit8`.
+The password is stored in the `data.txt` file, where all lowercase and uppercase letters have been rotated thirteen positions.
 ## Key Concepts & Commands:
-- `grep`: Searches for patterns within a file and displays matching lines.
+- `tr`: The translitertion command is used to translate, replace, or delete specific characters from standard input.
+- `<` Redirects a file's content into a command as standard input.
 
 ## Investigation & Troubleshooting 
-- Displaying the contents of `data.txt` using the `cat` command listed hundreds of thousands of words, making manually searching nearly impossible.
-- One command that resolves this issue is the `grep`, which enables search for specific words or patterns within a file.
-- Specified the word "millionth" as the search term in `data.txt`. This printed the entire line containing the matching word, along with the password.
+- The `data.txt` file contains text that has been shifted thirteen positions with the `ROT13` cipher.
+- Used the `tr` command to reverse the character substituion inputs to decode the text.
 ```bash
-bandit7@bandit:~$ grep "millionth" data.txt
-millionth ***********
+cat data.txt
+Gur cnffjbeq vf TEBbmJCB8DlA0zTewHxVQ0JPLxMvDkeA
+
+bandit11@bandit:~$ tr 'a-zA-Z' 'n-za-mN-ZA-M' < data.txt
+The password is *******************
+
 ```
+- It took sometime to understand the `tr` command, but realized that the first and second character sets need to match in total corresponding characters.
+- Unlike commands such as `grep`, `tr` needs `<` operator since it reads from standard input.
 - After retrieving the password, exited out of the current session and reconnected using the `bandit8` username and the new password to move on to the next level.
 
 ## Lessons Learned
-I learned how to use `grep` to search through a file for specific words or patterns. Unlike the `find` command which is used to search for files or directories based on a specified criteria, `grep` searches at a more granular level inside of a file. This is especially useful in situations when manually searching in a file would be impractical.
+I learned how to use `tr` to decode a line that has been shifted thirteen positions using `ROT13`. This command can also be used to remove or translate characters.
