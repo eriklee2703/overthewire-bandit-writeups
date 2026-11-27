@@ -1,18 +1,31 @@
-# Level 7 -> Level 8
+# Level 12 -> Level 13
 ## Objective:
-The password is stored next to the word "millionth" in a file named `data.txt`, located within the home directory. This password will be used to move on to `bandit8`.
+Locate the password stored in data.txt file, which is a hexdump of a file that has been repeatedly compressed. Create a directory under /tmp in which you can work. Use mkdir with a hard to guess directory name. Or better, use the command “mktemp -d”. Then copy the datafile using cp, and rename it using mv.
 ## Key Concepts & Commands:
-- `grep`: Searches for patterns within a file and displays matching lines.
+- `mktemp -d`: Creates a temporary directory inside the `/tmp` folder.
+- `cp`: Duplicates a file into another folder.
+- `mv`: Renames a file.
+- `file`: Indentifies the file format.
+- `gunzip`: Decompresses `gzip` files
+- `bunzip2`: Decompresses `bzip2` files.
+- `tar -x -v -f`: Extracts a specified archrived file and shows the execution. 
+- `xxd -r`: Reverses a hexadecimal file.
 
 ## Investigation & Troubleshooting 
-- Displaying the contents of `data.txt` using the `cat` command listed hundreds of thousands of words, making manually searching nearly impossible.
-- One command that resolves this issue is the `grep`, which enables search for specific words or patterns within a file.
-- Specified the word "millionth" as the search term in `data.txt`. This printed the entire line containing the matching word, along with the password.
+- Started this level by creating a temporary directory using `mktemp -d` to extract files without modifying the original file.
+- Copied the `data.txt` from the home directory into the new temporary directory.
+
 ```bash
-bandit7@bandit:~$ grep "millionth" data.txt
-millionth ***********
+bandit12@bandit:/tmp/tmp.x9ujiycPp5$ cp ~/data.txt .
 ```
-- After retrieving the password, exited out of the current session and reconnected using the `bandit8` username and the new password to move on to the next level.
+- The file contained a hexadecimal dump, so used xxd -r which converts a hexadecimal file back to a binary file.
+
+```bash
+bandit12@bandit:/tmp/tmp.x9ujiycPp5$ xxd -r data1.txt > data2.txt
+```
+- From this stage, performed several layers of decompressing, file renaming, and file checking till eventually reached a file in ASCII text.
+
+
 
 ## Lessons Learned
 I learned how to use `grep` to search through a file for specific words or patterns. Unlike the `find` command which is used to search for files or directories based on a specified criteria, `grep` searches at a more granular level inside of a file. This is especially useful in situations when manually searching in a file would be impractical.
