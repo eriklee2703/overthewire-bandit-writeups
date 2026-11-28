@@ -1,18 +1,22 @@
-# Level 7 -> Level 8
+# Level 14 -> Level 15
+
 ## Objective:
-The password is stored next to the word "millionth" in a file named `data.txt`, located within the home directory. This password will be used to move on to `bandit8`.
+Use the password stored in `/etc/bandit_pass/bandit14` and submit to port 30000 on `localhost` to retrieve the next password.
+
 ## Key Concepts & Commands:
-- `grep`: Searches for patterns within a file and displays matching lines.
+- `nc`: Netcat is a utility that reads and writes raw data across network connections using TCP or UDP. 
 
 ## Investigation & Troubleshooting 
-- Displaying the contents of `data.txt` using the `cat` command listed hundreds of thousands of words, making manually searching nearly impossible.
-- One command that resolves this issue is the `grep`, which enables search for specific words or patterns within a file.
-- Specified the word "millionth" as the search term in `data.txt`. This printed the entire line containing the matching word, along with the password.
+- To connect to port 30000 on the `localhost`, used `nc localhost 30000`, which establishes a TCP connection to the listening service.
+- The service listens for incoming connections, expecting for the current `bandit14` password where in return will retrieve the next level password if correct.
+
 ```bash
-bandit7@bandit:~$ grep "millionth" data.txt
-millionth ***********
+bandit14@bandit:/$ nc localhost 30000
+***********
+Correct!
+***********
 ```
-- After retrieving the password, exited out of the current session and reconnected using the `bandit8` username and the new password to move on to the next level.
+- After retrieving the password, exited out of the current session and reconnected using the `bandit15` username and the new password to move on to the next level.
 
 ## Lessons Learned
-I learned how to use `grep` to search through a file for specific words or patterns. Unlike the `find` command which is used to search for files or directories based on a specified criteria, `grep` searches at a more granular level inside of a file. This is especially useful in situations when manually searching in a file would be impractical.
+I learned to connect to communicate with a network service using Netcat through a specific TCP port. I also learned the purpose of `localhost` which allows a computer to communicate with itself.
